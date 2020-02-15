@@ -2,14 +2,13 @@
 // Time-stamp: <2020-02-02 15:58:23 Chuck Siska>
 
 // Make global g_canvas JS 'object': a key-value 'dictionary'.
-var g_canvas = { cell_size:10, wid:40.1, hgt:40.1 }; // JS Global var, w canvas size info.
-var g_frame_cnt = 0; // Setup a P5 display-frame counter, to do anim
-var g_frame_mod = 24; // Update ever 'mod' frames.
-var g_stop = 0; // Go by default.
+var g_canvas = { cell_size:10, wid:41, hgt:41 }; // JS Global var, w canvas size info.
+var genZero = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+var currentGen = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+var nextGen = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
 
 let ruleset = [1, 0, 0, 1, 0, 1, 1, 0];
-let c = document.getElementById("defaultCanvas0");
-let ctx = c.getContext("2d");
+let x,y;
 
 function setup() // P5 Setup Fcn
 {
@@ -19,6 +18,18 @@ function setup() // P5 Setup Fcn
     createCanvas( width, height );  // Make a P5 canvas.
     draw_grid( 10, 50, "white" );
     fill("white");
-    square(201, 0, 10);
+    square(210, 0, 10);
+
+    x= 0;
+    y=0;
 }
 
+function draw()
+{
+    stroke("RED");
+    noFill();
+    rect(x,y,30,10);
+    x = x + 10;
+    y = y + 10;
+   frameRate(2);
+}
