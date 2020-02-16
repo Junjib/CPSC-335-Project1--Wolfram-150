@@ -9,6 +9,7 @@ var nextGen = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 
 let ruleset = [1, 0, 0, 1, 0, 1, 1, 0];
 let x,y;
+let count;
 
 function setup() // P5 Setup Fcn
 {
@@ -19,6 +20,7 @@ function setup() // P5 Setup Fcn
     draw_grid( 10, 50, "white" );
     fill("white");
     square(210, 0, 10);
+    count = 0;
 
     x= 0;
     y=0;
@@ -26,10 +28,35 @@ function setup() // P5 Setup Fcn
 
 function draw()
 {
-    stroke("RED");
+    count ++;
+    //county = y;
+   
+    stroke("Black");
+    strokeWeight(5);
     noFill();
     rect(x,y,30,10);
+
+    //frameRate(2);
+    
     x = x + 10;
-    y = y + 10;
-   frameRate(2);
+
+    //y = y + 10;
+    draw_grid( 10, 50, "white" );
+    fill("white");
+    square(210, 0, 10);
+
+    stroke("RED");
+    strokeWeight(2);
+    noFill();
+    rect(x,y,30,10);
+    if (count ==38){
+        count = 0;
+        x=0
+        y = y+10;
+    }
+    
+    
+
+
+
 }
